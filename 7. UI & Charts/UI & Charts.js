@@ -16,14 +16,14 @@ var intro = ui.Panel([
 ]);
 panel.add(intro);
 
-// Панель накоторой будут отображаться занчения lon/lat.
+// Панель, на которой будут отображаться занчения lon/lat.
 var lon = ui.Label();
 var lat = ui.Label();
 panel.add(ui.Panel([lon, lat], ui.Panel.Layout.flow('horizontal')));
 
-// Регистрация отклика по базовой карте, котрый осущесвтляется в процессе клика курсором по карте.
+// Регистрация отклика от базовой карты, который осущесвтляется в процессе клика курсором по карте.
 Map.onClick(function(coords) {
-  // Обновляемя занчения lon/lat на панели в соотвтесвии с получаемымми занчениями при клики на карту.
+  // Обновляемя занчения lon/lat на панели в соответствии с получаемыми занчениями при клике на карту.
   lon.setValue('lon: ' + coords.lon.toFixed(2)),
   lat.setValue('lat: ' + coords.lat.toFixed(2));
   var point = ee.Geometry.Point(coords.lon, coords.lat);
